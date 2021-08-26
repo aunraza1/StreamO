@@ -1,6 +1,7 @@
-import {StyleSheet} from 'react-native'
+import {StyleSheet, Dimensions} from 'react-native'
 import { Avatar } from 'react-native-paper'
 
+const { height, width } = Dimensions.get('screen');
 
 
 const styles=StyleSheet.create({
@@ -10,24 +11,24 @@ const styles=StyleSheet.create({
         backgroundColor:'black'
     },
     cardConatiner:{
-        width:'90%',
+        width: width * 0.95,
         borderRadius:10, 
         borderWidth:1,
-        backgroundColor:'black',
-        height:200,
-        marginLeft:10,
+        backgroundColor:'black',        
         marginTop:10,
-        borderColor:'white'
+        marginLeft:10,
+        borderColor:'white',
+        paddingVertical:15,
     },
     pressedConatiner:{
-        width:'90%',
+        width: width*0.95,
         borderRadius:10, 
         borderWidth:1,
         backgroundColor:'black',
-        height:200,
         marginLeft:10,
         marginTop:10,
-        borderColor:'green'
+        borderColor:'red',
+        paddingVertical:15
 
     },
 
