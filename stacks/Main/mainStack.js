@@ -13,7 +13,7 @@ function MainStack(){
  const BottomTabs=createBottomTabNavigator()   
 return(
     
-    <NavigationContainer>
+   
     <BottomTabs.Navigator
     initialRouteName="HomeTab"
     screenOptions={{
@@ -55,7 +55,7 @@ return(
           
        
     </BottomTabs.Navigator>
-    </NavigationContainer>
+    
 
 )
 

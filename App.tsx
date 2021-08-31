@@ -9,7 +9,7 @@ function App (){
 return(
  
 
-<MainStack/>
+<RootStackNavigation/>
 
 
  

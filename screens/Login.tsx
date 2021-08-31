@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import {
   StyleSheet,
   Text,
@@ -9,16 +9,20 @@ import {
 } from 'react-native';
 
 import { TextInput } from 'react-native-paper';
+import MainStack from '../stacks/Main/mainStack';
+
 
 
 
 
 
 function Login ({navigation}){
+  const [click,setClick]=useState(false)
 
   
   return(
     <>
+    {click?<MainStack/>:
     <View style={styles.container}>
       <View style={styles.ImageContainer}>
         <ImageBackground style={styles.bckImage} resizeMode="cover" source={require('../assets/1.jpg')}>
@@ -34,7 +38,7 @@ function Login ({navigation}){
         />
       </View>
       <View>
-        <TouchableOpacity onPress={()=>navigation.navigate('Home')} style={styles.btn}>
+        <TouchableOpacity onPress={()=>setClick(true)} style={styles.btn}>
           <Text style={styles.txt}>Sign in </Text>
         </TouchableOpacity>
       </View>
@@ -47,7 +51,10 @@ function Login ({navigation}){
 
       <View style={styles.pass}>
        
-          <Text style={styles.txt}>Don't have an account? <TouchableOpacity onPress={()=>navigation.navigate('Signup')}><Text style={styles.Signup}>Sign Up</Text></TouchableOpacity>  </Text>
+          <Text style={styles.txt}>Don't have an account? 
+          <TouchableOpacity onPress={()=>navigation.navigate('Signup')}><Text style={styles.Signup}>Sign Up</Text>
+          </TouchableOpacity>
+          </Text>
 
         
       </View>
@@ -57,6 +64,7 @@ function Login ({navigation}){
 
 
     </View>
+}
     </>
   )
 

@@ -5,7 +5,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Contact from './contact';
 import Communities from './communities/index.js';
-import Posts from './post/posts'
+import {JobStack} from './Jobs/job';
+import Event from './Events/events'
 
 
 const Home = ({ navigation }) => {
@@ -55,12 +56,15 @@ const Home = ({ navigation }) => {
             </View>
 
             <View style={{ flex: 1 }} >
-                <TouchableOpacity onPress={()=>navigation.navigate('Posts')}>
+                <TouchableOpacity onPress={()=>navigation.navigate('JobsMain')}>
                 <Text style={{ color: 'red' }}>Hello World</Text>
                 </TouchableOpacity>
                
                 <TouchableOpacity onPress={() => navigation.navigate('Communities')}>
                     <Text style={{ color: 'red' }}>Oppo</Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => navigation.navigate('Events')}>
+                    <Text style={{ color: 'red' }}>Events</Text>
                 </TouchableOpacity>
             </View>
 
@@ -100,8 +104,7 @@ function HomeStack() {
     const Stack = createStackNavigator();
 
     return (
-        <Stack.Navigator
-        >
+        <Stack.Navigator>
 
             <Stack.Screen options={
                 { headerShown: false }} name="Main" component={Home} />
@@ -114,7 +117,24 @@ function HomeStack() {
                     }, headerTintColor: 'white'
                 }} name="Communities" component={Communities} />
 
-           <Stack.Screen name="Posts" component={Posts}></Stack.Screen>
+           <Stack.Screen 
+            name="JobsMain"
+            options={
+                {
+                    headerShown:false
+                }
+            }
+            component={JobStack}
+         ></Stack.Screen>
+               <Stack.Screen 
+            name="Events"
+            options={
+                {
+                    headerShown:false
+                }
+            }
+            component={Event}
+         ></Stack.Screen>
  
         </Stack.Navigator>
 
