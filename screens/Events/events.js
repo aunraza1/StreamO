@@ -1,14 +1,16 @@
 import React from 'react'
 import {Text,View,TouchableOpacity,FlatList} from 'react-native'
+import { createStackNavigator } from '@react-navigation/stack';
 import styles from './style'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faCalendar, faClock, } from '@fortawesome/free-regular-svg-icons';
 import { Avatar, Card, Paragraph } from 'react-native-paper';
 import { faEllipsisH, faComment ,faThumbsUp,faShareSquare,faEye,faLocationArrow,faDatabase} from '@fortawesome/free-solid-svg-icons';
+import EventDetail from '../Event Details/eventDetail';
 
 
 
-function Events(){
+function Events({navigation}){
 
     const LeftContent = props => <Avatar.Image {...props} source={require('../../assets/2.jpg')} />
     const RightContet = props => <TouchableOpacity style={styles.donate}>
@@ -44,7 +46,7 @@ function Events(){
      
      </Card.Title>
     </Card.Content>
-    <TouchableOpacity>
+    <TouchableOpacity activeOpacity={0.8} onPress={()=>navigation.navigate('Event Details')}>
     <Card.Cover source={{ uri: 'https://picsum.photos/700' }} />
     </TouchableOpacity>
   
@@ -72,8 +74,43 @@ const Subtitle=()=>{
            </View>
     )
 }
+const EventStack=()=>{
+    const Stack = createStackNavigator();
+
+    return(
+     <Stack.Navigator>
+
+       <Stack.Screen
+       name="Events"
+       component={Events}
+       options=  {{ headerShown: true,
+       headerStyle: {
+           backgroundColor: 'black',
+           opacity: 0.8,
+       }, headerTintColor: 'white'
+     }} >
+
+        </Stack.Screen>
+       <Stack.Screen 
+       name="Event Details" 
+       component={EventDetail}
+       options= {{ headerStyle: {
+        backgroundColor: 'black',
+        opacity: 0.8,
+    }, headerTintColor: 'white'
+  }}
+
+       ></Stack.Screen>
+
+
+    </Stack.Navigator>
+    )
+}
 
 
 
 
-export default Events
+export {
+    Events,
+    EventStack
+}

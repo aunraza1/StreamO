@@ -6,7 +6,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Contact from './contact';
 import Communities from './communities/index.js';
 import {JobStack} from './Jobs/job';
-import Event from './Events/events'
+import {EventStack} from './Events/events'
 
 
 const Home = ({ navigation }) => {
@@ -133,7 +133,7 @@ function HomeStack() {
                     headerShown:false
                 }
             }
-            component={Event}
+            component={EventStack}
          ></Stack.Screen>
  
         </Stack.Navigator>
